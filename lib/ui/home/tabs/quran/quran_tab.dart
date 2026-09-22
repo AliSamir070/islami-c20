@@ -4,16 +4,23 @@ import 'package:islami_c20/core/resources/app_constants.dart';
 import 'package:islami_c20/core/resources/assets_manager.dart';
 import 'package:islami_c20/core/resources/colors_manager.dart';
 import 'package:islami_c20/core/resources/strings_manager.dart';
+import 'package:islami_c20/model/sura_model.dart';
 import 'package:islami_c20/ui/home/tabs/quran/widgets/most_recent_item.dart';
 import 'package:islami_c20/ui/home/tabs/quran/widgets/sura_item.dart';
 
-class QuranTab extends StatelessWidget {
-  const QuranTab({super.key});
+class QuranTab extends StatefulWidget {
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
+String searchText = "";
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    List<SuraModel>filtered=filterList();
     return SafeArea(
       child: Container(
         width: double.infinity,
@@ -37,6 +44,11 @@ class QuranTab extends StatelessWidget {
             ),
             SizedBox(height: 21),
             TextField(
+              onChanged: (value) {
+               setState(() {
+                 searchText=value;
+               });
+              },
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
@@ -78,44 +90,65 @@ class QuranTab extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20,),
-            Text(StringsManager.mostRecent,style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-              color: ColorsManager.whiteColor
-            ),),
-            SizedBox(height: 10,),
-            SizedBox(
-              height: screenHeight*0.16,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return MostRecentItem();
-                  },
-                  separatorBuilder: (context, index) => SizedBox(width: 10,),
-                  itemCount: 10
+            Visibility(
+              visible: searchText.isEmpty,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(StringsManager.mostRecent,style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: ColorsManager.whiteColor
+                  ),),
+                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: screenHeight*0.16,
+                    child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return MostRecentItem();
+                        },
+                        separatorBuilder: (context, index) => SizedBox(width: 10,),
+                        itemCount: 10
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Text(StringsManager.suraList,style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: ColorsManager.whiteColor
+                  ),),
+                  SizedBox(height: 10,),
+                ],
               ),
             ),
-            SizedBox(height: 10,),
-            Text(StringsManager.suraList,style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w700,
-                color: ColorsManager.whiteColor
-            ),),
-            SizedBox(height: 10,),
             Expanded(
               child: ListView.separated(
-                  itemBuilder: (context, index) => SuraItem(AppConstants.surasList[index]),
+                  itemBuilder: (context, index) => SuraItem(filtered[index]),
                   separatorBuilder: (context, index) => Divider(
                     color: ColorsManager.whiteColor,
                     indent: 40,
                     endIndent: 40,
                   ),
-                  itemCount: AppConstants.surasList.length
+                  itemCount: filtered.length
               ),
             )
           ],
         ),
       ),
     );
+  }
+ List<SuraModel>filterList(){
+    if(searchText.isNotEmpty){
+      List<SuraModel> filtered = [];
+      for(int i=0;i<AppConstants.surasList.length;i++){
+        if(AppConstants.surasList[i].suraNameEn.toLowerCase().contains(searchText.toLowerCase()) || AppConstants.surasList[i].suraNameAr.contains(searchText)){
+          filtered.add(AppConstants.surasList[i]);
+        }
+      }
+      return filtered;
+    }else{
+      return AppConstants.surasList;
+    }
   }
 }
