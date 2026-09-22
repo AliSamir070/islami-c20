@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_c20/ui/hadeth_details/screen/hadeth_details_screen.dart';
 import 'package:islami_c20/ui/home/screen/home_screen.dart';
+import 'package:islami_c20/ui/home/tabs/sebha/screen/sebha_tab.dart';
+import 'package:islami_c20/ui/onbarding/screen/onboarding.dart';
 import 'package:islami_c20/ui/sura_details/screen/sura_details_screen.dart';
 
 import 'core/resources/routes_manager.dart';
@@ -21,8 +23,10 @@ class MyApp extends StatelessWidget {
         RoutesManager.homeRouteName:(context)=>HomeScreen(),
         RoutesManager.suraDetailsRouteName:(context)=>SuraDetailsScreen(),
         RoutesManager.hadethDetailRouteName:(context)=>HadethDetailsScreen(),
+        RoutesManager.onboardScreenRouteName:(context)=>OnboardingScreen(),
+        RoutesManager.sebhaDetailsRouteName:(context)=>SebhaTab(),
       },
-      initialRoute: RoutesManager.homeRouteName,
+      initialRoute: RoutesManager.onboardScreenRouteName,
     );
   }
 }

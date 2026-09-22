@@ -6,7 +6,7 @@ import 'package:islami_c20/core/resources/strings_manager.dart';
 import 'package:islami_c20/ui/home/tabs/hadeth/hadeth_tab.dart';
 import 'package:islami_c20/ui/home/tabs/quran/quran_tab.dart';
 import 'package:islami_c20/ui/home/tabs/radio/radio_tab.dart';
-import 'package:islami_c20/ui/home/tabs/sebha/sebha_tab.dart';
+import 'package:islami_c20/ui/home/tabs/sebha/screen/sebha_tab.dart';
 import 'package:islami_c20/ui/home/tabs/time/time_tab.dart';
 
 class HomeScreen extends StatefulWidget {
