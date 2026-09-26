@@ -16,4 +16,8 @@ abstract final class AssetsManager {
   static const String quranBack = "assets/images/quran_back.png";
   static const String mostRecent = "assets/images/img_most_recent.png";
   static const String suraNumber = "assets/images/sura_number.svg";
+  static const String sebha_background = "assets/images/Background.png";
+  static const String sebha_islami = "assets/images/Logo.png";
+  static const String sebha_image = "assets/images/SebhaBody 1.png";
+  static const String sebha_headd = "assets/images/Group 37 (1).png";
 }
