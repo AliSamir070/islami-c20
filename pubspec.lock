@@ -57,6 +57,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.9"
+  cupertino_ui:
+    dependency: transitive
+    description:
+      name: cupertino_ui
+      sha256: c23816577a1280cff409e989541767887011f8f1d8c1863a794ed308af46f2a9
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
+  dots_indicator:
+    dependency: "direct main"
+    description:
+      name: dots_indicator
+      sha256: c9ea60760704d5af651ec971b9a75e629a5e7574a1d61e905b9c6e6efbe666e1
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -94,6 +110,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -128,6 +149,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.3"
   leak_tracker:
     dependency: transitive
     description:
@@ -176,6 +205,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.0"
+  material_ui:
+    dependency: transitive
+    description:
+      name: material_ui
+      sha256: "134ab2f0843545c4e661e4ba2753fe1bcf0753cb690d5a9ee4870638a40411e9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.0"
   meta:
     dependency: transitive
     description:
@@ -430,5 +467,5 @@ packages:
     source: hosted
     version: "7.0.1"
 sdks:
-  dart: ">=3.11.5 <4.0.0"
-  flutter: ">=3.38.0"
+  dart: ">=3.13.0 <4.0.0"
+  flutter: ">=3.47.0"
