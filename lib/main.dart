@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_c20/ui/hadeth_details/screen/hadeth_details_screen.dart';
 import 'package:islami_c20/ui/home/screen/home_screen.dart';
+import 'package:islami_c20/ui/onboarding_screens/onboarding.dart';
 import 'package:islami_c20/ui/sura_details/screen/sura_details_screen.dart';
 
 import 'core/resources/routes_manager.dart';
@@ -18,11 +19,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner:false,
       routes: {
+        RoutesManager.Onboarding:(context)=>OnboardingScreen(),
         RoutesManager.homeRouteName:(context)=>HomeScreen(),
         RoutesManager.suraDetailsRouteName:(context)=>SuraDetailsScreen(),
         RoutesManager.hadethDetailRouteName:(context)=>HadethDetailsScreen(),
+
       },
-      initialRoute: RoutesManager.homeRouteName,
+      initialRoute: RoutesManager.Onboarding,
     );
   }
 }
